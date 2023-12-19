@@ -6,6 +6,8 @@ import {
   MINT_AMOUNT_NATIVE,
   NATIVE_DENOM,
   NATIVE_TICK,
+  SEND_TOKENS_TO,
+  SEND_TOKENS_TO_MY_ADDRESS_REPLACER,
   SLEEP_BETWEEN_ACCOUNT_TXS_SEC,
   SLEEP_ON_GET_ACCOUNT_ERROR_SEC,
   UNATIVE_PER_NATIVE,
@@ -23,7 +25,7 @@ export const sendTx = async (
 ) => {
   const { transactionHash } = await signingClient.sendTokens(
     address,
-    address,
+    SEND_TOKENS_TO.replace(SEND_TOKENS_TO_MY_ADDRESS_REPLACER, address),
     [
       {
         denom: NATIVE_DENOM,

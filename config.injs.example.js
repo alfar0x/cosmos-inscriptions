@@ -30,7 +30,7 @@ export const TXS_API_URL = null;
 export const SLEEP_BETWEEN_CHECK_MINTED_SEC = 5;
 export const MINTED_API_URL = null;
 
-// system dont edit
+// system DO NOT EDIT
 export const EXPLORER = "https://www.mintscan.io/injective/tx";
 export const MEMO =
   "ZGF0YToseyJwIjoiaW5qcmMtMjAiLCJvcCI6Im1pbnQiLCJ0aWNrIjoiSU5KUyIsImFtdCI6IjIwMDAifQ==";
@@ -41,3 +41,5 @@ export const NATIVE_TICK = "INJ";
 export const ADDRESS_LENGTH = 42;
 export const ADDRESS_PREFIX = "inj";
 export const WITHDRAW_EXCHANGE_ADDRESS = "inj....";
+export const SEND_TOKENS_TO_MY_ADDRESS_REPLACER = "{my_wallet_address}";
+export const SEND_TOKENS_TO = "inj15jy9vzmyy63ql9y6dvned2kdat2994x5f4ldu4";

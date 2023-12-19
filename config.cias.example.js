@@ -31,7 +31,7 @@ export const TXS_API_URL =
 export const SLEEP_BETWEEN_CHECK_MINTED_SEC = 5;
 export const MINTED_API_URL = "https://celestia.api.explorers.guru/api/v1/txs";
 
-// system dont edit
+// system DO NOT EDIT
 export const EXPLORER = "https://www.mintscan.io/celestia/tx";
 export const MEMO =
   "ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjaWEtMjAifQ==";
@@ -42,3 +42,5 @@ export const NATIVE_TICK = "TIA";
 export const ADDRESS_LENGTH = 47;
 export const ADDRESS_PREFIX = "celestia";
 export const WITHDRAW_EXCHANGE_ADDRESS = "celestia....";
+export const SEND_TOKENS_TO_MY_ADDRESS_REPLACER = "{my_wallet_address}";
+export const SEND_TOKENS_TO = "{my_wallet_address}";
