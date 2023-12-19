@@ -23,7 +23,6 @@
 - `npm run minted` - check how many transactions minted tokens (using `output/accountTransactions`)
 
 ## Config Variables
-Certainly! Here's the information with comments indicating the sections for each variable in Markdown format:
 
 ### Common Configuration
 
