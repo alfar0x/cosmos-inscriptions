@@ -29,6 +29,8 @@ export const sendTx = async (
     signingClient,
     privateKey: InjPrivateKey,
     fromAddress: address,
+    memo: MEMO,
+    amount: Math.round(MINT_AMOUNT_NATIVE * UNATIVE_PER_NATIVE).toString(),
   });
 
   const txUrl = `${EXPLORER}/${transactionHash}`;

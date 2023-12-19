@@ -1,9 +1,9 @@
 import {
   ADDRESS_PREFIX,
+  EXPLORER,
   FEE_NATIVE,
   GAS,
   MEMO,
-  MINT_AMOUNT_NATIVE,
   NATIVE_DENOM,
   SEND_TOKENS_TO,
   SEND_TOKENS_TO_MY_ADDRESS_REPLACER,
@@ -17,16 +17,16 @@ import {
   TxClient,
   ChainRestAuthApi,
   createTransaction,
+  TxGrpcClient,
 } from "@injectivelabs/sdk-ts";
 
 export const sendTokens = async (params) => {
-  const { signingClient, privateKey, fromAddress } = params;
+  const { signingClient, privateKey, fromAddress, memo, amount } = params;
   const toAddress = SEND_TOKENS_TO.replace(
     SEND_TOKENS_TO_MY_ADDRESS_REPLACER,
     fromAddress
   );
 
-  const amount = Math.round(MINT_AMOUNT_NATIVE * UNATIVE_PER_NATIVE).toString();
   const fee = Math.round(FEE_NATIVE * UNATIVE_PER_NATIVE).toString();
 
   // @ts-ignore
@@ -42,24 +42,29 @@ export const sendTokens = async (params) => {
     return { transactionHash }; // @ts-ignore
   } else if (ADDRESS_PREFIX === "inj") {
     const network = getNetworkInfo(Network.Mainnet);
-    const injectiveAddress = privateKey.toBech32();
+
     const publicKey = privateKey.toPublicKey().toBase64();
 
     const accountDetails = await new ChainRestAuthApi(
       network.rest
-    ).fetchAccount(injectiveAddress);
+    ).fetchAccount(fromAddress);
 
     const msg = MsgSend.fromJSON({
-      amount: { amount: amount, denom: NATIVE_DENOM },
+      amount: { amount, denom: NATIVE_DENOM },
       srcInjectiveAddress: fromAddress,
       dstInjectiveAddress: toAddress,
     });
 
     const { signBytes, txRaw } = createTransaction({
       message: msg,
-      memo: MEMO,
+      memo,
       fee: {
-        amount: [{ amount: fee, denom: NATIVE_DENOM }],
+        amount: [
+          {
+            amount: fee,
+            denom: NATIVE_DENOM,
+          },
+        ],
         gas: GAS.toString(),
       },
       pubKey: publicKey,
@@ -70,9 +75,28 @@ export const sendTokens = async (params) => {
       ),
       chainId: network.chainId,
     });
+
     const signature = await privateKey.sign(Buffer.from(signBytes));
+
     /** Append Signatures */
     txRaw.signatures = [signature];
+
+    const url = `${EXPLORER}/${TxClient.hash(txRaw)}`;
+    /** Calculate hash of the transaction */
+    console.log(`Transaction Hash: ${url}`);
+
+    const txService = new TxGrpcClient(network.grpc);
+
+    /** Simulate transaction */
+    // const simulationResponse = await txService.simulate(txRaw);
+    // console.log(
+    //   `Transaction simulation response: ${JSON.stringify(
+    //     simulationResponse.gasInfo
+    //   )}`
+    // );
+
+    /** Broadcast transaction */
+    const txResponse = await txService.broadcast(txRaw);
 
     return { transactionHash: TxClient.hash(txRaw) };
   }

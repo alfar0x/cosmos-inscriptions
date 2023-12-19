@@ -5,6 +5,9 @@
   "scripts": {
     "addresses": "node scripts/addresses.js",
     "generate": "node scripts/generate.js",
+    "mint": "node scripts/mint.js",
+    "dispatch": "node scripts/dispatch.js",
+    "withdraw": "node scripts/withdraw.js",
     "balances": "node scripts/balances.js",
     "transactions": "node scripts/transactions.js",
     "minted": "node scripts/minted.js",

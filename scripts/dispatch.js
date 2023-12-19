@@ -10,6 +10,7 @@ import {
   RPC,
   SEND_NATIVE_TOKENS_PER_ACCOUNT,
   SLEEP_BETWEEN_DISPATCH_SEC,
+  UNATIVE_PER_NATIVE,
 } from "../config.js";
 import { getAccount } from "../src/getAccount.js";
 import { getAccountsFromFile } from "../src/getAccountsFromFile.js";
@@ -45,6 +46,10 @@ const main = async () => {
         signingClient,
         privateKey: mainAccount.InjPrivateKey,
         fromAddress: mainAccount.address,
+
+        amount: Math.round(
+          SEND_NATIVE_TOKENS_PER_ACCOUNT * UNATIVE_PER_NATIVE
+        ).toString(),
       });
 
       const txUrl = `${EXPLORER}/${transactionHash}`;

@@ -40,6 +40,9 @@ const main = async () => {
         signingClient,
         privateKey: InjPrivateKey,
         fromAddress: address,
+        amount: Math.round(
+          (nativeAmount - LEAVE_NATIVE_ON_ACCOUNT) * UNATIVE_PER_NATIVE
+        ).toString(),
       });
 
       const txUrl = `${EXPLORER}/${transactionHash}`;
