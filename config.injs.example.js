@@ -34,7 +34,7 @@ export const MINTED_API_URL = null;
 export const EXPLORER = "https://www.mintscan.io/injective/tx";
 export const MEMO =
   "ZGF0YToseyJwIjoiaW5qcmMtMjAiLCJvcCI6Im1pbnQiLCJ0aWNrIjoiSU5KUyIsImFtdCI6IjIwMDAifQ==";
-export const NATIVE_DENOM = "uinj"; // ??????????????
+export const NATIVE_DENOM = "inj";
 export const FILE_ACCOUNTS = "input/accounts.txt";
 export const UNATIVE_PER_NATIVE = 10 ** 18;
 export const NATIVE_TICK = "INJ";
