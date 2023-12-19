@@ -3,8 +3,8 @@ export const RPC = "https://sentry.tm.injective.network/";
 export const NATIVE_PRICE_USD = 39.25;
 
 // mint
-export const GAS = 100000;
-export const FEE_NATIVE = 0.0001;
+export const GAS = 150000;
+export const FEE_NATIVE = 0.0003;
 export const MINT_AMOUNT_NATIVE = 0.03;
 
 export const SLEEP_ON_GET_ACCOUNT_ERROR_SEC = 20;
@@ -12,7 +12,7 @@ export const SLEEP_BETWEEN_START_ACCOUNTS_SEC = 5;
 export const SLEEP_BETWEEN_ACCOUNT_TXS_SEC = 5;
 
 // dispatch
-export const SEND_NATIVE_TOKENS_PER_ACCOUNT = 0.12;
+export const SEND_NATIVE_TOKENS_PER_ACCOUNT = 0.0012;
 export const SLEEP_BETWEEN_DISPATCH_SEC = 30;
 
 // withdraw
