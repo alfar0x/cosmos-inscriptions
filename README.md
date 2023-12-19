@@ -48,6 +48,7 @@ Certainly! Here's the information with comments indicating the sections for each
 
 - **LEAVE_NATIVE_ON_ACCOUNT**: The amount of native tokens to leave on each account during withdrawal.
 - **SLEEP_BETWEEN_WITHDRAW_SEC**: The duration to sleep (in seconds) between withdrawal operations.
+- **WITHDRAW_EXCHANGE_ADDRESS**: The withdrawal address for exchanging tokens.
 
 ### Balances Configuration
 
@@ -73,7 +74,6 @@ Certainly! Here's the information with comments indicating the sections for each
 - **NATIVE_TICK**: The ticker symbol for the native token.
 - **ADDRESS_LENGTH**: The expected length of a blockchain address.
 - **ADDRESS_PREFIX**: The prefix for blockchain addresses.
-- **WITHDRAW_EXCHANGE_ADDRESS**: The withdrawal address for exchanging tokens.
 - **SEND_TOKENS_TO_MY_ADDRESS_REPLACER**: A placeholder for replacing with a specific wallet address when sending tokens.
 - **SEND_TOKENS_TO**: The default address to send tokens to.
 

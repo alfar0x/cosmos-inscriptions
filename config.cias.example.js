@@ -18,6 +18,7 @@ export const SLEEP_BETWEEN_DISPATCH_SEC = 30;
 // withdraw
 export const LEAVE_NATIVE_ON_ACCOUNT = 0.05;
 export const SLEEP_BETWEEN_WITHDRAW_SEC = 5;
+export const WITHDRAW_EXCHANGE_ADDRESS = "celestia....";
 
 // balacnes
 export const SLEEP_BETWEEN_CHECK_BALANCES_SEC = 30;
@@ -41,6 +42,5 @@ export const UNATIVE_PER_NATIVE = 10 ** 6;
 export const NATIVE_TICK = "TIA";
 export const ADDRESS_LENGTH = 47;
 export const ADDRESS_PREFIX = "celestia";
-export const WITHDRAW_EXCHANGE_ADDRESS = "celestia....";
-export const SEND_TOKENS_TO_MY_ADDRESS_REPLACER = "{my_wallet_address}";
-export const SEND_TOKENS_TO = "{my_wallet_address}";
+export const SEND_TOKENS_TO_MY_ADDRESS_REPLACER = "{address}"; // system DO NOT EDIT
+export const SEND_TOKENS_TO = "{address}"; // system DO NOT EDIT
