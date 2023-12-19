@@ -1,0 +1,8 @@
+node_modules/
+mnemonics.txt
+config.js
+input/
+output/
+logs/
+yarn.lock
+package-lock.json

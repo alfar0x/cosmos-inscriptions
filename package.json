@@ -1,0 +1,21 @@
+{
+  "name": "cias-minter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "mint": "node scripts/mint.js",
+    "generate": "node scripts/generate.js",
+    "dispatch": "node scripts/dispatch.js",
+    "withdraw": "node scripts/withdraw.js",
+    "balances": "node scripts/balances.js",
+    "transactions": "node scripts/transactions.js",
+    "minted": "node scripts/minted.js",
+    "update": "git reset --hard HEAD && git pull && npm install"
+  },
+  "dependencies": {
+    "@cosmjs/stargate": "0.28.2",
+    "axios": "^1.6.2",
+    "winston": "^3.11.0"
+  },
+  "type": "module"
+}
