@@ -25,6 +25,7 @@ export const sendTx = async (
   signingClient,
   InjPrivateKey
 ) => {
+  logger.warn(`[${accountIdx}] ${address} - start sending tx`);
   const { transactionHash } = await sendTokens({
     signingClient,
     privateKey: InjPrivateKey,

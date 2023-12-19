@@ -19,6 +19,7 @@ import {
   createTransaction,
   TxGrpcClient,
 } from "@injectivelabs/sdk-ts";
+import { logger } from "./logger.js";
 
 export const sendTokens = async (params) => {
   const { signingClient, privateKey, fromAddress, memo, amount } = params;
@@ -83,7 +84,7 @@ export const sendTokens = async (params) => {
 
     const url = `${EXPLORER}/${TxClient.hash(txRaw)}`;
     /** Calculate hash of the transaction */
-    console.log(`Transaction Hash: ${url}`);
+    logger.info(`Transaction Hash: ${url}`);
 
     const txService = new TxGrpcClient(network.grpc);
 
