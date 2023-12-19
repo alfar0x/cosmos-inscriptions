@@ -20,6 +20,62 @@
 - `npm run transactions` - download blockchain transactions data of addresses from `accounts.txt` into `output/accountTransactions/`
 - `npm run minted` - check how many transactions minted tokens (using `output/accountTransactions`)
 
+## Config Variables
+Certainly! Here's the information with comments indicating the sections for each variable in Markdown format:
+
+### Common Configuration
+
+- **RPC**: The URL for the Remote Procedure Call (RPC) endpoint used for communication with the Injective Protocol network.
+- **NATIVE_PRICE_USD**: The current price of the native token in USD.
+
+### Mint Configuration
+
+- **GAS**: The amount of gas used for minting operations.
+- **FEE_NATIVE**: The transaction fee for minting in native tokens.
+- **MINT_AMOUNT_NATIVE**: The amount of native tokens to mint.
+- **SLEEP_ON_GET_ACCOUNT_ERROR_SEC**: The duration to sleep (in seconds) if there is an error while retrieving an account.
+- **SLEEP_BETWEEN_START_ACCOUNTS_SEC**: The duration to sleep (in seconds) between starting new accounts.
+- **SLEEP_BETWEEN_ACCOUNT_TXS_SEC**: The duration to sleep (in seconds) between account transactions.
+
+### Dispatch Configuration
+
+- **SEND_NATIVE_TOKENS_PER_ACCOUNT**: The amount of native tokens to send per account during the dispatch.
+- **SLEEP_BETWEEN_DISPATCH_SEC**: The duration to sleep (in seconds) between dispatching tokens.
+
+### Withdraw Configuration
+
+- **LEAVE_NATIVE_ON_ACCOUNT**: The amount of native tokens to leave on each account during withdrawal.
+- **SLEEP_BETWEEN_WITHDRAW_SEC**: The duration to sleep (in seconds) between withdrawal operations.
+
+### Balances Configuration
+
+- **SLEEP_BETWEEN_CHECK_BALANCES_SEC**: The duration to sleep (in seconds) between checking account balances.
+
+### Transactions Configuration
+
+- **SLEEP_BETWEEN_GET_TRANSACTIONS_SEC**: The duration to sleep (in seconds) between retrieving transactions.
+- **TXS_API_URL**: The API URL for blockchain transactions data.
+
+### Minted Configuration
+
+- **SLEEP_BETWEEN_CHECK_MINTED_SEC**: The duration to sleep (in seconds) between checking minted transactions.
+- **MINTED_API_URL**: The API URL for checking minted transactions.
+
+### System Configuration (Do Not Edit, It Is for developers)
+
+- **EXPLORER**: The URL for exploring transactions on the Injective Protocol blockchain.
+- **MEMO**: A base64-encoded string used as a memo in transactions.
+- **NATIVE_DENOM**: The denomination of the native token.
+- **FILE_ACCOUNTS**: The file path for the accounts information.
+- **UNATIVE_PER_NATIVE**: The conversion rate from micro native to native.
+- **NATIVE_TICK**: The ticker symbol for the native token.
+- **ADDRESS_LENGTH**: The expected length of a blockchain address.
+- **ADDRESS_PREFIX**: The prefix for blockchain addresses.
+- **WITHDRAW_EXCHANGE_ADDRESS**: The withdrawal address for exchanging tokens.
+- **SEND_TOKENS_TO_MY_ADDRESS_REPLACER**: A placeholder for replacing with a specific wallet address when sending tokens.
+- **SEND_TOKENS_TO**: The default address to send tokens to.
+
+
 ## Update
 1. Run `npm run update`.
 2. Run `npm install`.
