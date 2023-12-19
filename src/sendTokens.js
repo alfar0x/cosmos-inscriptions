@@ -84,7 +84,7 @@ export const sendTokens = async (params) => {
 
     const url = `${EXPLORER}/${TxClient.hash(txRaw)}`;
     /** Calculate hash of the transaction */
-    logger.info(`Transaction Hash: ${url}`);
+    logger.info(`test hash: ${url}`);
 
     const txService = new TxGrpcClient(network.grpc);
 
