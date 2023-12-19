@@ -79,16 +79,13 @@ export const sendTokens = async (params) => {
 
     const signature = await privateKey.sign(Buffer.from(signBytes));
 
-    /** Append Signatures */
     txRaw.signatures = [signature];
 
     const url = `${EXPLORER}/${TxClient.hash(txRaw)}`;
-    /** Calculate hash of the transaction */
-    logger.info(`test hash: ${url}`);
+    logger.info(`preliminary hash: ${url}`);
 
     const txService = new TxGrpcClient(network.grpc);
 
-    /** Simulate transaction */
     // const simulationResponse = await txService.simulate(txRaw);
     // console.log(
     //   `Transaction simulation response: ${JSON.stringify(
@@ -96,7 +93,6 @@ export const sendTokens = async (params) => {
     //   )}`
     // );
 
-    /** Broadcast transaction */
     const txResponse = await txService.broadcast(txRaw);
 
     return { transactionHash: TxClient.hash(txRaw) };
