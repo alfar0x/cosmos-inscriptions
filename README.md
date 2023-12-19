@@ -84,7 +84,7 @@ Certainly! Here's the information with comments indicating the sections for each
 3. Copy the new `config.example.js` to your `config.js`.
 
 
-## Donate: `0xeb3F3e28F5c83FCaF28ccFC08429cCDD58Fd571D`
-## Donate: `inj15sf2ya2e40z2zqza88g29vt7aw0xd9egudeuavs`
+### Donate: `0xeb3F3e28F5c83FCaF28ccFC08429cCDD58Fd571D`
+### Donate: `inj15sf2ya2e40z2zqza88g29vt7aw0xd9egudeuavs`
 
 ## Explore more scripts on our [Telegram channel](https://t.me/+FozX3VZA0RIyNWY6).
