@@ -57,15 +57,15 @@ Certainly! Here's the information with comments indicating the sections for each
 ### Transactions Configuration
 
 - **SLEEP_BETWEEN_GET_TRANSACTIONS_SEC**: The duration to sleep (in seconds) between retrieving transactions.
-- **TXS_API_URL**: The API URL for blockchain transactions data.
 
 ### Minted Configuration
 
 - **SLEEP_BETWEEN_CHECK_MINTED_SEC**: The duration to sleep (in seconds) between checking minted transactions.
-- **MINTED_API_URL**: The API URL for checking minted transactions.
 
 ### System Configuration (Do Not Edit, It Is for developers)
 
+- **TXS_API_URL**: The API URL for blockchain transactions data.
+- **MINTED_API_URL**: The API URL for checking minted transactions.
 - **EXPLORER**: The URL for exploring transactions on the Injective Protocol blockchain.
 - **MEMO**: A base64-encoded string used as a memo in transactions.
 - **NATIVE_DENOM**: The denomination of the native token.
