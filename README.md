@@ -1,5 +1,7 @@
 # Cosmos Inscriptions by [Alfar](https://t.me/+FozX3VZA0RIyNWY6)
 
+# This script is currently under development. Use it at your own risk!
+
 ## Install
 1. Download and install [Node.js](https://nodejs.org/en/download).
 2. Install dependencies using the `npm install` command in the project root.
