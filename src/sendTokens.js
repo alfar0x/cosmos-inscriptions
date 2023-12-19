@@ -5,8 +5,6 @@ import {
   GAS,
   MEMO,
   NATIVE_DENOM,
-  SEND_TOKENS_TO,
-  SEND_TOKENS_TO_MY_ADDRESS_REPLACER,
   UNATIVE_PER_NATIVE,
 } from "../config.js";
 
