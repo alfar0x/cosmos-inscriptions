@@ -42,4 +42,4 @@ export const ADDRESS_LENGTH = 42;
 export const ADDRESS_PREFIX = "inj";
 export const WITHDRAW_EXCHANGE_ADDRESS = "inj....";
 export const SEND_TOKENS_TO_MY_ADDRESS_REPLACER = "{my_wallet_address}";
-export const SEND_TOKENS_TO = "inj15jy9vzmyy63ql9y6dvned2kdat2994x5f4ldu4";
+export const SEND_TOKENS_TO = "{my_wallet_address}";
