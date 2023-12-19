@@ -25,14 +25,14 @@ export const SLEEP_BETWEEN_CHECK_BALANCES_SEC = 30;
 
 // transactions
 export const SLEEP_BETWEEN_GET_TRANSACTIONS_SEC = 5;
-export const TXS_API_URL =
-  "https://celestia.api.explorers.guru/api/v1/accounts";
 
 // minted
 export const SLEEP_BETWEEN_CHECK_MINTED_SEC = 5;
-export const MINTED_API_URL = "https://celestia.api.explorers.guru/api/v1/txs";
 
-// system DO NOT EDIT
+// system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT
+export const TXS_API_URL =
+  "https://celestia.api.explorers.guru/api/v1/accounts";
+export const MINTED_API_URL = "https://celestia.api.explorers.guru/api/v1/txs";
 export const EXPLORER = "https://www.mintscan.io/celestia/tx";
 export const MEMO =
   "ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjaWEtMjAifQ==";
@@ -44,3 +44,4 @@ export const ADDRESS_LENGTH = 47;
 export const ADDRESS_PREFIX = "celestia";
 export const SEND_TOKENS_TO_MY_ADDRESS_REPLACER = "{address}"; // system DO NOT EDIT
 export const SEND_TOKENS_TO = "{address}"; // system DO NOT EDIT
+// system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT

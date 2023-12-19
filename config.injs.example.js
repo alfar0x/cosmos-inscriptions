@@ -25,13 +25,13 @@ export const SLEEP_BETWEEN_CHECK_BALANCES_SEC = 30;
 
 // transactions
 export const SLEEP_BETWEEN_GET_TRANSACTIONS_SEC = 5;
-export const TXS_API_URL = null;
 
 // minted
 export const SLEEP_BETWEEN_CHECK_MINTED_SEC = 5;
-export const MINTED_API_URL = null;
 
-// system DO NOT EDIT
+// system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT
+export const TXS_API_URL = null;
+export const MINTED_API_URL = null;
 export const EXPLORER = "https://www.mintscan.io/injective/tx";
 export const MEMO =
   "ZGF0YToseyJwIjoiaW5qcmMtMjAiLCJvcCI6Im1pbnQiLCJ0aWNrIjoiSU5KUyIsImFtdCI6IjIwMDAifQ==";
@@ -43,3 +43,4 @@ export const ADDRESS_LENGTH = 42;
 export const ADDRESS_PREFIX = "inj";
 export const SEND_TOKENS_TO_MY_ADDRESS_REPLACER = "{address}"; // system DO NOT EDIT
 export const SEND_TOKENS_TO = "{address}"; // system DO NOT EDIT
+// system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT
