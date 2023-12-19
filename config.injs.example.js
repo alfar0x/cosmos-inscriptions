@@ -1,4 +1,5 @@
 // common
+export const EXPLORER = "https://www.mintscan.io/injective/tx";
 export const RPC = "https://sentry.tm.injective.network/";
 export const NATIVE_PRICE_USD = 37.23;
 
@@ -32,7 +33,6 @@ export const SLEEP_BETWEEN_CHECK_MINTED_SEC = 5;
 // system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT
 export const TXS_API_URL = null;
 export const MINTED_API_URL = null;
-export const EXPLORER = "https://www.mintscan.io/injective/tx";
 export const MEMO =
   "ZGF0YToseyJwIjoiaW5qcmMtMjAiLCJvcCI6Im1pbnQiLCJ0aWNrIjoiSU5KUyIsImFtdCI6IjIwMDAifQ==";
 export const NATIVE_DENOM = "inj";

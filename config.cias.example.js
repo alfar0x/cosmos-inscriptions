@@ -1,4 +1,5 @@
 // common
+export const EXPLORER = "https://www.mintscan.io/celestia/tx";
 export const RPC = "https://rpc.lunaroasis.net/";
 export const NATIVE_PRICE_USD = 12.46;
 
@@ -33,7 +34,6 @@ export const SLEEP_BETWEEN_CHECK_MINTED_SEC = 5;
 export const TXS_API_URL =
   "https://celestia.api.explorers.guru/api/v1/accounts";
 export const MINTED_API_URL = "https://celestia.api.explorers.guru/api/v1/txs";
-export const EXPLORER = "https://www.mintscan.io/celestia/tx";
 export const MEMO =
   "ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjaWEtMjAifQ==";
 export const NATIVE_DENOM = "utia";

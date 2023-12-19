@@ -26,6 +26,7 @@
 
 ### Common Configuration
 
+- **EXPLORER**: The URL for exploring transactions on the blockchain.
 - **RPC**: The URL for the Remote Procedure Call (RPC) endpoint used for communication with the Injective Protocol network.
 - **NATIVE_PRICE_USD**: The current price of the native token in USD.
 
@@ -65,7 +66,6 @@
 
 - **TXS_API_URL**: The API URL for blockchain transactions data.
 - **MINTED_API_URL**: The API URL for checking minted transactions.
-- **EXPLORER**: The URL for exploring transactions on the Injective Protocol blockchain.
 - **MEMO**: A base64-encoded string used as a memo in transactions.
 - **NATIVE_DENOM**: The denomination of the native token.
 - **FILE_ACCOUNTS**: The file path for the accounts information.
