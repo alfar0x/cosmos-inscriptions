@@ -1,7 +1,7 @@
-import { readByLine } from "./helpers";
+import { readByLine } from "./helpers.js";
 
-const { FILE_ACCOUNTS } = require("../config");
-const { initializeFilesAndFolders } = require("./initializeFilesAndFolders");
+import { FILE_ACCOUNTS } from "../config.js";
+import { initializeFilesAndFolders } from "./initializeFilesAndFolders.js";
 
 export const getAccountsFromFile = () => {
   initializeFilesAndFolders([FILE_ACCOUNTS]);

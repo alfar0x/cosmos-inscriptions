@@ -3,8 +3,12 @@
 ## Install
 1. Download and install [Node.js](https://nodejs.org/en/download).
 2. Install dependencies using the `npm install` command in the project root.
-3. Create a `config.js` file and fill it as in the `config.example.js` example file.
+3. Create a `config.js` file and fill it as in the `config.{token}.example.js` example file.
 4. `input/accounts.txt` - add mnemonics and addresses here (format: `mnemonic,address` or `mnemonic`)
+
+## Available tokens
+1. CIAS - celestia insctiption - `config.cias.example.js`
+1. INJS - injective insctiption - `config.injs.example.js`
 
 ## Available Commands
 - `npm run mint` - mint token

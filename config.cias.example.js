@@ -41,4 +41,4 @@ export const UNATIVE_PER_NATIVE = 10 ** 6;
 export const NATIVE_TICK = "TIA";
 export const ADDRESS_LENGTH = 47;
 export const ADDRESS_PREFIX = "celestia";
-export const WITHDRAW_EXCHANGE_ADDRESS = "celestia1....";
+export const WITHDRAW_EXCHANGE_ADDRESS = "celestia....";
