@@ -19,8 +19,8 @@
 - `npm run withdraw` - withdraw native to exchange from all accounts
 - `npm run balances` - check balances
 - `npm run addresses` - get addresses from `accounts.txt`
-- `npm run transactions` - download blockchain transactions data of addresses from `accounts.txt` into `output/accountTransactions/`
-- `npm run minted` - check how many transactions minted tokens (using `output/accountTransactions`)
+- `npm run transactions` - download blockchain transactions data of addresses from `accounts.txt` into `output/accountTransactions/` (cias only)
+- `npm run minted` - check how many transactions minted tokens (using `output/accountTransactions`) (cias only)
 
 ## Config Variables
 
