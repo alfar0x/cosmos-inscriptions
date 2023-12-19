@@ -52,8 +52,14 @@ export const getAccount = async (/** @type {string} */ mnemonic) => {
       address
     );
 
-    return { mnemonic, address, signingClient, nativeAmount, usdAmount };
-  } else {
-    throw new Error(`address prefix is not defined ${ADDRESS_PREFIX}`);
+    return {
+      mnemonic,
+      address,
+      signingClient,
+      nativeAmount,
+      usdAmount,
+      InjPrivateKey: privateKeyFromMnemonic,
+    };
   }
+  throw new Error(`address prefix is not defined ${ADDRESS_PREFIX}`);
 };

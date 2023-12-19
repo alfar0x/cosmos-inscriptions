@@ -1,22 +1,19 @@
 import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { SigningStargateClient } from "@cosmjs/stargate";
 
-import { readByLine, sleep } from "../src/helpers.js";
+import { sleep } from "../src/helpers.js";
 import { logger } from "../src/logger.js";
 import {
   ADDRESS_PREFIX,
   EXPLORER,
-  FEE_NATIVE,
-  GAS,
-  NATIVE_DENOM,
   NATIVE_TICK,
   RPC,
   SEND_NATIVE_TOKENS_PER_ACCOUNT,
   SLEEP_BETWEEN_DISPATCH_SEC,
-  UNATIVE_PER_NATIVE,
 } from "../config.js";
 import { getAccount } from "../src/getAccount.js";
 import { getAccountsFromFile } from "../src/getAccountsFromFile.js";
+import { sendTokens } from "../src/sendTokens.js";
 
 const { fromMnemonic } = DirectSecp256k1HdWallet;
 const { connectWithSigner } = SigningStargateClient;
@@ -44,27 +41,11 @@ const main = async () => {
 
   for (const accountToDispatch of accountsToDispatch) {
     try {
-      const { transactionHash } = await signingClient.sendTokens(
-        mainAccount.address,
-        accountToDispatch.address,
-        [
-          {
-            denom: NATIVE_DENOM,
-            amount: Math.round(
-              SEND_NATIVE_TOKENS_PER_ACCOUNT * UNATIVE_PER_NATIVE
-            ).toString(),
-          },
-        ],
-        {
-          amount: [
-            {
-              denom: NATIVE_DENOM,
-              amount: Math.round(FEE_NATIVE * UNATIVE_PER_NATIVE).toString(),
-            },
-          ],
-          gas: GAS.toString(),
-        }
-      );
+      const { transactionHash } = await sendTokens({
+        signingClient,
+        privateKey: mainAccount.InjPrivateKey,
+        fromAddress: mainAccount.address,
+      });
 
       const txUrl = `${EXPLORER}/${transactionHash}`;
 

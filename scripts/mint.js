@@ -17,32 +17,19 @@ import { logger } from "../src/logger.js";
 import { getAccount } from "../src/getAccount.js";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { getAccountsFromFile } from "../src/getAccountsFromFile.js";
+import { sendTokens } from "../src/sendTokens.js";
 
 export const sendTx = async (
   /** @type {number} */ accountIdx,
   /** @type {string} */ address,
-  /** @type {SigningStargateClient} */ signingClient
+  signingClient,
+  InjPrivateKey
 ) => {
-  const { transactionHash } = await signingClient.sendTokens(
-    address,
-    SEND_TOKENS_TO.replace(SEND_TOKENS_TO_MY_ADDRESS_REPLACER, address),
-    [
-      {
-        denom: NATIVE_DENOM,
-        amount: Math.round(MINT_AMOUNT_NATIVE * UNATIVE_PER_NATIVE).toString(),
-      },
-    ],
-    {
-      amount: [
-        {
-          denom: NATIVE_DENOM,
-          amount: Math.round(FEE_NATIVE * UNATIVE_PER_NATIVE).toString(),
-        },
-      ],
-      gas: GAS.toString(),
-    },
-    MEMO
-  );
+  const { transactionHash } = await sendTokens({
+    signingClient,
+    privateKey: InjPrivateKey,
+    fromAddress: address,
+  });
 
   const txUrl = `${EXPLORER}/${transactionHash}`;
 
@@ -75,7 +62,12 @@ const processAccount = async (
 
   while (true) {
     try {
-      await sendTx(accountIdx, account.address, account.signingClient);
+      await sendTx(
+        accountIdx,
+        account.address,
+        account.signingClient,
+        account.InjPrivateKey
+      );
       await sleep(SLEEP_BETWEEN_ACCOUNT_TXS_SEC);
     } catch (error) {
       logger.error(

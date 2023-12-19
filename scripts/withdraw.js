@@ -15,6 +15,7 @@ import {
 } from "../config.js";
 import { getAccount } from "../src/getAccount.js";
 import { getAccountsFromFile } from "../src/getAccountsFromFile.js";
+import { sendTokens } from "../src/sendTokens.js";
 
 const main = async () => {
   if (
@@ -28,34 +29,18 @@ const main = async () => {
   const accounts = getAccountsFromFile();
 
   for (const { mnemonic } of accounts) {
-    const { address, nativeAmount, signingClient, usdAmount } =
+    const { address, nativeAmount, signingClient, usdAmount, InjPrivateKey } =
       await getAccount(mnemonic);
     try {
       logger.info(
         `${address} - ${nativeAmount} ${NATIVE_TICK} ($${usdAmount})`
       );
 
-      const { transactionHash } = await signingClient.sendTokens(
-        address,
-        WITHDRAW_EXCHANGE_ADDRESS,
-        [
-          {
-            denom: NATIVE_DENOM,
-            amount: Math.round(
-              (nativeAmount - LEAVE_NATIVE_ON_ACCOUNT) * UNATIVE_PER_NATIVE
-            ).toString(),
-          },
-        ],
-        {
-          amount: [
-            {
-              denom: NATIVE_DENOM,
-              amount: Math.round(FEE_NATIVE * UNATIVE_PER_NATIVE).toString(),
-            },
-          ],
-          gas: GAS.toString(),
-        }
-      );
+      const { transactionHash } = await sendTokens({
+        signingClient,
+        privateKey: InjPrivateKey,
+        fromAddress: address,
+      });
 
       const txUrl = `${EXPLORER}/${transactionHash}`;
 
