@@ -12,7 +12,7 @@ export const SLEEP_BETWEEN_START_ACCOUNTS_SEC = 5;
 export const SLEEP_BETWEEN_ACCOUNT_TXS_SEC = 5;
 
 // dispatch
-export const SEND_NATIVE_TOKENS_PER_ACCOUNT = 0.4;
+export const SEND_NATIVE_TOKENS_PER_ACCOUNT = 0.12;
 export const SLEEP_BETWEEN_DISPATCH_SEC = 30;
 
 // withdraw

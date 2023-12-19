@@ -7,9 +7,11 @@ import { initializeFilesAndFolders } from "../src/initializeFilesAndFolders.js";
 const main = async () => {
   const accounts = getAccountsFromFile();
 
+  const result = [];
+
   for (const { mnemonic } of accounts) {
     const { address } = await getAccount(mnemonic);
-    return { address, mnemonic };
+    result.push({ address, mnemonic });
   }
 
   const time = fileNameNowPrefix();
@@ -22,20 +24,20 @@ const main = async () => {
 
   writeFile(
     FILE_ACCOUNTS,
-    accounts.map(({ mnemonic, address }) => `${mnemonic},${address}`).join("\n")
+    result.map(({ mnemonic, address }) => `${mnemonic},${address}`).join("\n")
   );
 
   writeFile(
     FILE_MNEMONICS,
-    accounts.map(({ mnemonic }) => `${mnemonic}`).join("\n")
+    result.map(({ mnemonic }) => `${mnemonic}`).join("\n")
   );
 
   writeFile(
     FILE_ADDRESSES,
-    accounts.map(({ address }) => `${address}`).join("\n")
+    result.map(({ address }) => `${address}`).join("\n")
   );
 
-  logger.info(`added ${length} addresses ${FILE_ACCOUNTS}`);
+  logger.info(`added ${result.length} addresses ${FILE_ACCOUNTS}`);
 };
 
 main();
