@@ -1,6 +1,6 @@
 // common
 export const RPC = "https://sentry.tm.injective.network/";
-export const NATIVE_PRICE_USD = 39.25;
+export const NATIVE_PRICE_USD = 37.23;
 
 // mint
 export const GAS = 150000;
