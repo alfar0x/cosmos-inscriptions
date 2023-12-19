@@ -3,9 +3,9 @@ export const RPC = "https://rpc.lunaroasis.net/";
 export const NATIVE_PRICE_USD = 12.46;
 
 // mint
-export const FEE = 10000;
 export const GAS = 100000;
-export const MINT_AMOUNT_UNATIVE = 1;
+export const FEE_NATIVE = 0.01;
+export const MINT_AMOUNT_NATIVE = 0.000001;
 
 export const SLEEP_ON_GET_ACCOUNT_ERROR_SEC = 20;
 export const SLEEP_BETWEEN_START_ACCOUNTS_SEC = 5;

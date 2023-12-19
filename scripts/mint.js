@@ -1,13 +1,14 @@
 import {
   EXPLORER,
-  FEE,
+  FEE_NATIVE,
   GAS,
   MEMO,
-  MINT_AMOUNT_UNATIVE,
+  MINT_AMOUNT_NATIVE,
   NATIVE_DENOM,
   NATIVE_TICK,
   SLEEP_BETWEEN_ACCOUNT_TXS_SEC,
   SLEEP_ON_GET_ACCOUNT_ERROR_SEC,
+  UNATIVE_PER_NATIVE,
 } from "../config.js";
 import { sleep } from "../src/helpers.js";
 import { logger } from "../src/logger.js";
@@ -23,9 +24,19 @@ export const sendTx = async (
   const { transactionHash } = await signingClient.sendTokens(
     address,
     address,
-    [{ denom: NATIVE_DENOM, amount: MINT_AMOUNT_UNATIVE.toString() }],
+    [
+      {
+        denom: NATIVE_DENOM,
+        amount: Math.round(MINT_AMOUNT_NATIVE * UNATIVE_PER_NATIVE).toString(),
+      },
+    ],
     {
-      amount: [{ denom: NATIVE_DENOM, amount: FEE.toString() }],
+      amount: [
+        {
+          denom: NATIVE_DENOM,
+          amount: Math.round(FEE_NATIVE * UNATIVE_PER_NATIVE).toString(),
+        },
+      ],
       gas: GAS.toString(),
     },
     MEMO

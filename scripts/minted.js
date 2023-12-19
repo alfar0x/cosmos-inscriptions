@@ -3,15 +3,14 @@ import { logger } from "../src/logger.js";
 import {
   appendFile,
   fileNameNowPrefix,
-  readByLine,
   readFile,
   sleep,
 } from "../src/helpers.js";
-import { initializeFilesAndFolders } from "../src/initializeFilesAndFolders.js";
 import {
   MEMO,
   MINTED_API_URL,
-  MINT_AMOUNT_UNATIVE,
+  MINT_AMOUNT_NATIVE,
+  UNATIVE_PER_NATIVE,
   NATIVE_DENOM,
   SLEEP_BETWEEN_CHECK_MINTED_SEC,
   SLEEP_BETWEEN_GET_TRANSACTIONS_SEC,
@@ -29,7 +28,8 @@ const checkIsTransactionMinted = async (/** @type {string} */ hash) => {
     return (
       message.from_address === message.to_address &&
       amount.denom === NATIVE_DENOM &&
-      amount.amount === MINT_AMOUNT_UNATIVE.toString() &&
+      amount.amount ===
+        Math.round(MINT_AMOUNT_NATIVE * UNATIVE_PER_NATIVE).toString() &&
       body.memo === MEMO
     );
   } catch (error) {

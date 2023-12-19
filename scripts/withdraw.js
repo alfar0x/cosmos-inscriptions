@@ -4,7 +4,7 @@ import {
   ADDRESS_LENGTH,
   ADDRESS_PREFIX,
   EXPLORER,
-  FEE,
+  FEE_NATIVE,
   GAS,
   LEAVE_NATIVE_ON_ACCOUNT,
   NATIVE_DENOM,
@@ -47,7 +47,12 @@ const main = async () => {
           },
         ],
         {
-          amount: [{ denom: NATIVE_DENOM, amount: FEE.toString() }],
+          amount: [
+            {
+              denom: NATIVE_DENOM,
+              amount: Math.round(FEE_NATIVE * UNATIVE_PER_NATIVE).toString(),
+            },
+          ],
           gas: GAS.toString(),
         }
       );
