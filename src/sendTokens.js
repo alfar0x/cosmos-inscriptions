@@ -22,11 +22,8 @@ import {
 import { logger } from "./logger.js";
 
 export const sendTokens = async (params) => {
-  const { signingClient, privateKey, fromAddress, memo, amount } = params;
-  const toAddress = SEND_TOKENS_TO.replace(
-    SEND_TOKENS_TO_MY_ADDRESS_REPLACER,
-    fromAddress
-  );
+  const { signingClient, privateKey, fromAddress, toAddress, memo, amount } =
+    params;
 
   const fee = Math.round(FEE_NATIVE * UNATIVE_PER_NATIVE).toString();
 

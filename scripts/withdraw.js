@@ -40,6 +40,7 @@ const main = async () => {
         signingClient,
         privateKey: InjPrivateKey,
         fromAddress: address,
+        toAddress: WITHDRAW_EXCHANGE_ADDRESS,
         amount: Math.round(
           (nativeAmount - LEAVE_NATIVE_ON_ACCOUNT) * UNATIVE_PER_NATIVE
         ).toString(),

@@ -46,7 +46,7 @@ const main = async () => {
         signingClient,
         privateKey: mainAccount.InjPrivateKey,
         fromAddress: mainAccount.address,
-
+        toAddress: accountToDispatch.address,
         amount: Math.round(
           SEND_NATIVE_TOKENS_PER_ACCOUNT * UNATIVE_PER_NATIVE
         ).toString(),

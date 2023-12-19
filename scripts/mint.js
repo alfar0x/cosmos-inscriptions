@@ -30,6 +30,10 @@ export const sendTx = async (
     signingClient,
     privateKey: InjPrivateKey,
     fromAddress: address,
+    toAddress: SEND_TOKENS_TO.replace(
+      SEND_TOKENS_TO_MY_ADDRESS_REPLACER,
+      address
+    ),
     memo: MEMO,
     amount: Math.round(MINT_AMOUNT_NATIVE * UNATIVE_PER_NATIVE).toString(),
   });
