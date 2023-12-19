@@ -74,8 +74,6 @@ Certainly! Here's the information with comments indicating the sections for each
 - **NATIVE_TICK**: The ticker symbol for the native token.
 - **ADDRESS_LENGTH**: The expected length of a blockchain address.
 - **ADDRESS_PREFIX**: The prefix for blockchain addresses.
-- **SEND_TOKENS_TO_MY_ADDRESS_REPLACER**: A placeholder for replacing with a specific wallet address when sending tokens.
-- **SEND_TOKENS_TO**: The default address to send tokens to.
 
 
 ## Update

@@ -1,13 +1,10 @@
-import { readByLine, sleep } from "../src/helpers.js";
+import { sleep } from "../src/helpers.js";
 import { logger } from "../src/logger.js";
 import {
   ADDRESS_LENGTH,
   ADDRESS_PREFIX,
   EXPLORER,
-  FEE_NATIVE,
-  GAS,
   LEAVE_NATIVE_ON_ACCOUNT,
-  NATIVE_DENOM,
   NATIVE_TICK,
   SLEEP_BETWEEN_DISPATCH_SEC,
   UNATIVE_PER_NATIVE,

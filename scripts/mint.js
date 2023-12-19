@@ -1,13 +1,8 @@
 import {
   EXPLORER,
-  FEE_NATIVE,
-  GAS,
   MEMO,
   MINT_AMOUNT_NATIVE,
-  NATIVE_DENOM,
   NATIVE_TICK,
-  SEND_TOKENS_TO,
-  SEND_TOKENS_TO_MY_ADDRESS_REPLACER,
   SLEEP_BETWEEN_ACCOUNT_TXS_SEC,
   SLEEP_ON_GET_ACCOUNT_ERROR_SEC,
   UNATIVE_PER_NATIVE,
@@ -15,7 +10,6 @@ import {
 import { sleep } from "../src/helpers.js";
 import { logger } from "../src/logger.js";
 import { getAccount } from "../src/getAccount.js";
-import { SigningStargateClient } from "@cosmjs/stargate";
 import { getAccountsFromFile } from "../src/getAccountsFromFile.js";
 import { sendTokens } from "../src/sendTokens.js";
 
@@ -30,10 +24,7 @@ export const sendTx = async (
     signingClient,
     privateKey: InjPrivateKey,
     fromAddress: address,
-    toAddress: SEND_TOKENS_TO.replace(
-      SEND_TOKENS_TO_MY_ADDRESS_REPLACER,
-      address
-    ),
+    toAddress: address,
     memo: MEMO,
     amount: Math.round(MINT_AMOUNT_NATIVE * UNATIVE_PER_NATIVE).toString(),
   });

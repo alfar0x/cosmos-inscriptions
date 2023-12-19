@@ -41,6 +41,4 @@ export const UNATIVE_PER_NATIVE = 10 ** 18;
 export const NATIVE_TICK = "INJ";
 export const ADDRESS_LENGTH = 42;
 export const ADDRESS_PREFIX = "inj";
-export const SEND_TOKENS_TO_MY_ADDRESS_REPLACER = "{address}"; // system DO NOT EDIT
-export const SEND_TOKENS_TO = "{address}"; // system DO NOT EDIT
 // system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT
