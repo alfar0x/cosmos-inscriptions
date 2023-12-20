@@ -31,9 +31,7 @@ export const SLEEP_BETWEEN_GET_TRANSACTIONS_SEC = 5;
 export const SLEEP_BETWEEN_CHECK_MINTED_SEC = 5;
 
 // system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT
-export const TXS_API_URL =
-  "https://celestia.api.explorers.guru/api/v1/accounts";
-export const MINTED_API_URL = "https://celestia.api.explorers.guru/api/v1/txs";
+export const MINTED_API_URL = "https://www.cias.wtf/api/cias/cia-20/balance";
 export const MEMO =
   "ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjaWEtMjAifQ==";
 export const NATIVE_DENOM = "utia";

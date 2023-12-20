@@ -19,8 +19,7 @@
 - `npm run withdraw` - withdraw native to exchange from all accounts
 - `npm run balances` - check balances
 - `npm run addresses` - get addresses from `accounts.txt`
-- `npm run transactions` - download blockchain transactions data of addresses from `accounts.txt` into `output/accountTransactions/` (cias only)
-- `npm run minted` - check how many transactions minted tokens (using `output/accountTransactions`) (cias only)
+- `npm run minted` - check how many transactions minted tokens (cias only)
 
 ## Config Variables
 
@@ -53,10 +52,6 @@
 ### Balances Configuration
 
 - **SLEEP_BETWEEN_CHECK_BALANCES_SEC**: The duration to sleep (in seconds) between checking account balances.
-
-### Transactions Configuration
-
-- **SLEEP_BETWEEN_GET_TRANSACTIONS_SEC**: The duration to sleep (in seconds) between retrieving transactions.
 
 ### Minted Configuration
 

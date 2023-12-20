@@ -31,7 +31,6 @@ export const SLEEP_BETWEEN_GET_TRANSACTIONS_SEC = 5;
 export const SLEEP_BETWEEN_CHECK_MINTED_SEC = 5;
 
 // system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT system DO NOT EDIT
-export const TXS_API_URL = null;
 export const MINTED_API_URL = null;
 export const MEMO =
   "ZGF0YToseyJwIjoiaW5qcmMtMjAiLCJvcCI6Im1pbnQiLCJ0aWNrIjoiSU5KUyIsImFtdCI6IjIwMDAifQ==";

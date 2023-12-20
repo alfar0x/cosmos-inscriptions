@@ -1,40 +1,18 @@
 import axios from "axios";
 import { logger } from "../src/logger.js";
-import {
-  appendFile,
-  fileNameNowPrefix,
-  readFile,
-  sleep,
-} from "../src/helpers.js";
-import {
-  MEMO,
-  MINTED_API_URL,
-  MINT_AMOUNT_NATIVE,
-  UNATIVE_PER_NATIVE,
-  NATIVE_DENOM,
-  SLEEP_BETWEEN_CHECK_MINTED_SEC,
-  SLEEP_BETWEEN_GET_TRANSACTIONS_SEC,
-} from "../config.js";
+import { appendFile, fileNameNowPrefix, sleep } from "../src/helpers.js";
+import { MINTED_API_URL, SLEEP_BETWEEN_CHECK_MINTED_SEC } from "../config.js";
 import { getAccountsFromFile } from "../src/getAccountsFromFile.js";
 import { getAccount } from "../src/getAccount.js";
 
-const checkIsTransactionMinted = async (/** @type {string} */ hash) => {
+const checkCiasBalance = async (address) => {
   try {
-    const url = `${MINTED_API_URL}/${hash}/raw`;
+    const url = `${MINTED_API_URL}/${address}`;
     const response = await axios.get(url);
-    const body = response.data.tx.body;
-    const message = body.messages[0];
-    const amount = message.amount[0];
-    return (
-      message.from_address === message.to_address &&
-      amount.denom === NATIVE_DENOM &&
-      amount.amount ===
-        Math.round(MINT_AMOUNT_NATIVE * UNATIVE_PER_NATIVE).toString() &&
-      body.memo === MEMO
-    );
+    return [response.data?.balance, response.data?.rank];
   } catch (error) {
     logger.error(error.message);
-    return false;
+    return [error.message || "undefined error"];
   }
 };
 
@@ -45,7 +23,6 @@ const main = async () => {
   }
 
   const FOLDER_OUTPUT = `./output/minted_${fileNameNowPrefix()}.txt`;
-  const FOLDER_TXS = "./output/accountTransactions";
 
   const accounts = getAccountsFromFile();
 
@@ -61,22 +38,13 @@ const main = async () => {
     }
 
     try {
-      const { transactions } = JSON.parse(
-        readFile(`${FOLDER_TXS}/${address}.json`)
-      );
-
-      let mintedCount = 0;
-
-      for (const tx of transactions) {
-        const isMinted = await checkIsTransactionMinted(tx.hash);
-        logger.info(`${address} ${isMinted} ${MINTED_API_URL}/${tx.hash}/raw`);
-        if (isMinted) mintedCount += 1;
-        await sleep(SLEEP_BETWEEN_CHECK_MINTED_SEC);
-      }
-
-      appendFile(`${FOLDER_OUTPUT}`, `${address},${mintedCount}`);
+      const result = await checkCiasBalance(address);
+      console.log(`${address} - balance: ${result[0]}, rank: ${result[1]}`);
+      appendFile(`${FOLDER_OUTPUT}`, `${address},${result.join(",")}\n`);
       errorsCount = 0;
-      mintedSum += mintedCount;
+      if (typeof result[0] === "number") {
+        mintedSum += result[0];
+      }
     } catch (error) {
       logger.error(`${address} error - ${error.message}`);
       appendFile(`${FOLDER_OUTPUT}`, `${address},${error.message}\n`);
@@ -84,7 +52,7 @@ const main = async () => {
       errorsCount += 1;
     }
 
-    await sleep(SLEEP_BETWEEN_GET_TRANSACTIONS_SEC);
+    await sleep(SLEEP_BETWEEN_CHECK_MINTED_SEC);
   }
 
   logger.info(`Minted sum: ${mintedSum}`);

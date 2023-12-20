@@ -9,7 +9,6 @@
     "dispatch": "node scripts/dispatch.js",
     "withdraw": "node scripts/withdraw.js",
     "balances": "node scripts/balances.js",
-    "transactions": "node scripts/transactions.js",
     "minted": "node scripts/minted.js",
     "update": "git reset --hard HEAD && git pull && npm install"
   },
