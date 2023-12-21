@@ -31,7 +31,7 @@ export const sendTx = async (
 
   const txUrl = `${EXPLORER}/${transactionHash}`;
 
-  logger.info(`[${accountIdx}] ${address} - ${txUrl}`);
+  logger.info(`[${accountIdx}] ${address} -  mint success ${txUrl}`);
 };
 
 const getAccountWrapped = async (
