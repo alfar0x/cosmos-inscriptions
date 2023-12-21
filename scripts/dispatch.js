@@ -58,8 +58,6 @@ const main = async () => {
         `${SEND_NATIVE_TOKENS_PER_ACCOUNT} ${NATIVE_TICK} sent to ${accountToDispatch.address} - ${txUrl}`
       );
 
-      await sleep(SLEEP_BETWEEN_DISPATCH_SEC);
-
       const currentMainAccount = await getAccount(mainAccount.mnemonic);
 
       logger.info(
@@ -78,6 +76,8 @@ const main = async () => {
         }`
       );
     }
+
+    await sleep(SLEEP_BETWEEN_DISPATCH_SEC);
   }
 
   logger.info("done");
