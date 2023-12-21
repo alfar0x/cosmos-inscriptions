@@ -26,7 +26,7 @@
 ### Common Configuration
 
 - **EXPLORER**: The URL for exploring transactions on the blockchain.
-- **RPC**: The URL for the Remote Procedure Call (RPC) endpoint used for communication with the Injective Protocol network.
+- **TIA_RPC**: The URL for the Remote Procedure Call (TIA_RPC) endpoint used for communication with the Injective Protocol network.
 - **NATIVE_PRICE_USD**: The current price of the native token in USD.
 
 ### Mint Configuration

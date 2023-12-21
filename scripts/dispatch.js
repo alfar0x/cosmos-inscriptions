@@ -7,7 +7,7 @@ import {
   ADDRESS_PREFIX,
   EXPLORER,
   NATIVE_TICK,
-  RPC,
+  TIA_RPC,
   SEND_NATIVE_TOKENS_PER_ACCOUNT,
   SLEEP_BETWEEN_DISPATCH_SEC,
   UNATIVE_PER_NATIVE,
@@ -34,7 +34,7 @@ const main = async () => {
     prefix: ADDRESS_PREFIX,
   });
 
-  const signingClient = await connectWithSigner(RPC, signer);
+  const signingClient = await connectWithSigner(TIA_RPC, signer);
 
   logger.info(
     `main account balance - ${mainAccount.address} - ${mainAccount.nativeAmount} ${NATIVE_TICK} ($${mainAccount.usdAmount})`

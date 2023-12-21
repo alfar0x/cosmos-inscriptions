@@ -3,6 +3,8 @@ import {
   EXPLORER,
   FEE_NATIVE,
   GAS,
+  INJ_GRPC,
+  INJ_REST,
   MEMO,
   NATIVE_DENOM,
   UNATIVE_PER_NATIVE,
@@ -41,9 +43,9 @@ export const sendTokens = async (params) => {
 
     const publicKey = privateKey.toPublicKey().toBase64();
 
-    const accountDetails = await new ChainRestAuthApi(
-      network.rest
-    ).fetchAccount(fromAddress);
+    const accountDetails = await new ChainRestAuthApi(INJ_REST).fetchAccount(
+      fromAddress
+    );
 
     const msg = MsgSend.fromJSON({
       amount: { amount, denom: NATIVE_DENOM },
@@ -79,7 +81,7 @@ export const sendTokens = async (params) => {
     const url = `${EXPLORER}/${TxClient.hash(txRaw)}`;
     logger.warn(`preliminary hash: ${url}`);
 
-    const txService = new TxGrpcClient(network.grpc);
+    const txService = new TxGrpcClient(INJ_GRPC);
 
     // const simulationResponse = await txService.simulate(txRaw);
     // console.log(
