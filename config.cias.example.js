@@ -18,7 +18,6 @@ export const SEND_NATIVE_TOKENS_PER_ACCOUNT = 0.4;
 export const SLEEP_BETWEEN_DISPATCH_SEC = 30;
 
 // withdraw
-export const LEAVE_NATIVE_ON_ACCOUNT = 0.05;
 export const SLEEP_BETWEEN_WITHDRAW_SEC = 5;
 export const WITHDRAW_EXCHANGE_ADDRESS = "celestia....";
 

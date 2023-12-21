@@ -45,7 +45,6 @@
 
 ### Withdraw Configuration
 
-- **LEAVE_NATIVE_ON_ACCOUNT**: The amount of native tokens to leave on each account during withdrawal.
 - **SLEEP_BETWEEN_WITHDRAW_SEC**: The duration to sleep (in seconds) between withdrawal operations.
 - **WITHDRAW_EXCHANGE_ADDRESS**: The withdrawal address for exchanging tokens.
 

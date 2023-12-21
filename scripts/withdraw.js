@@ -4,7 +4,7 @@ import {
   ADDRESS_LENGTH,
   ADDRESS_PREFIX,
   EXPLORER,
-  LEAVE_NATIVE_ON_ACCOUNT,
+  FEE_NATIVE,
   NATIVE_TICK,
   SLEEP_BETWEEN_DISPATCH_SEC,
   UNATIVE_PER_NATIVE,
@@ -39,7 +39,7 @@ const main = async () => {
         fromAddress: address,
         toAddress: WITHDRAW_EXCHANGE_ADDRESS,
         amount: Math.round(
-          (nativeAmount - LEAVE_NATIVE_ON_ACCOUNT) * UNATIVE_PER_NATIVE
+          (nativeAmount - FEE_NATIVE) * UNATIVE_PER_NATIVE
         ).toString(),
       });
 
