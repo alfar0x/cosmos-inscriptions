@@ -77,7 +77,7 @@ export const sendTokens = async (params) => {
     txRaw.signatures = [signature];
 
     const url = `${EXPLORER}/${TxClient.hash(txRaw)}`;
-    logger.info(`preliminary hash: ${url}`);
+    logger.warn(`preliminary hash: ${url}`);
 
     const txService = new TxGrpcClient(network.grpc);
 
