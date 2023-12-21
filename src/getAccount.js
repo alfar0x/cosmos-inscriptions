@@ -1,6 +1,6 @@
 import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { SigningStargateClient } from "@cosmjs/stargate";
-import { ADDRESS_PREFIX, TIA_RPC } from "../config.js";
+import { ADDRESS_PREFIX, RPC } from "../config.js";
 import { getAccountBalance } from "./getAccountBalance.js";
 import {
   InjectiveDirectEthSecp256k1Wallet,
@@ -18,7 +18,7 @@ export const getAccount = async (/** @type {string} */ mnemonic) => {
     const account = await signer.getAccounts();
     const address = account[0].address;
     const signingClient = await SigningStargateClient.connectWithSigner(
-      TIA_RPC,
+      RPC,
       signer
     );
 
@@ -41,7 +41,7 @@ export const getAccount = async (/** @type {string} */ mnemonic) => {
 
     const signingClient =
       await InjectiveStargate.InjectiveSigningStargateClient.connectWithSigner(
-        TIA_RPC,
+        RPC,
         // @ts-ignore
         signer
       );

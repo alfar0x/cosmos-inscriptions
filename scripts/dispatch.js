@@ -7,7 +7,7 @@ import {
   ADDRESS_PREFIX,
   EXPLORER,
   NATIVE_TICK,
-  TIA_RPC,
+  RPC,
   SEND_NATIVE_TOKENS_PER_ACCOUNT,
   SLEEP_BETWEEN_DISPATCH_SEC,
   UNATIVE_PER_NATIVE,
@@ -34,7 +34,7 @@ const main = async () => {
     prefix: ADDRESS_PREFIX,
   });
 
-  const signingClient = await connectWithSigner(TIA_RPC, signer);
+  const signingClient = await connectWithSigner(RPC, signer);
 
   logger.info(
     `main account balance - ${mainAccount.address} - ${mainAccount.nativeAmount} ${NATIVE_TICK} ($${mainAccount.usdAmount})`
@@ -71,6 +71,7 @@ const main = async () => {
         return;
       }
     } catch (error) {
+      console.log(error);
       logger.error(
         `${accountToDispatch.address} error - ${
           error?.message || "undefined error"
