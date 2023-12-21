@@ -23,6 +23,7 @@ export const SLEEP_BETWEEN_DISPATCH_SEC = 30;
 // withdraw
 export const SLEEP_BETWEEN_WITHDRAW_SEC = 5;
 export const WITHDRAW_EXCHANGE_ADDRESS = "inj....";
+export const LEAVE_NATIVE_ON_ACCOUNT = 0.01;
 
 // balances
 export const SLEEP_BETWEEN_CHECK_BALANCES_SEC = 30;

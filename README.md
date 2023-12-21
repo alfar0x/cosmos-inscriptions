@@ -38,6 +38,10 @@
 - **SLEEP_BETWEEN_START_ACCOUNTS_SEC**: The duration to sleep (in seconds) between starting new accounts.
 - **SLEEP_BETWEEN_ACCOUNT_TXS_SEC**: The duration to sleep (in seconds) between account transactions.
 
+### Generate Configuration
+
+- **GENERATE_ACCOUNTS_COUNT**: The count of accounts to be generated
+
 ### Dispatch Configuration
 
 - **SEND_NATIVE_TOKENS_PER_ACCOUNT**: The amount of native tokens to send per account during the dispatch.
@@ -45,6 +49,7 @@
 
 ### Withdraw Configuration
 
+- **LEAVE_NATIVE_ON_ACCOUNT**: The amount of native tokens to leave on each account during withdrawal.
 - **SLEEP_BETWEEN_WITHDRAW_SEC**: The duration to sleep (in seconds) between withdrawal operations.
 - **WITHDRAW_EXCHANGE_ADDRESS**: The withdrawal address for exchanging tokens.
 

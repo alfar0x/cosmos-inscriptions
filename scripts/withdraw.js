@@ -4,11 +4,11 @@ import {
   ADDRESS_LENGTH,
   ADDRESS_PREFIX,
   EXPLORER,
-  FEE_NATIVE,
   NATIVE_TICK,
   SLEEP_BETWEEN_DISPATCH_SEC,
   UNATIVE_PER_NATIVE,
   WITHDRAW_EXCHANGE_ADDRESS,
+  LEAVE_NATIVE_ON_ACCOUNT,
 } from "../config.js";
 import { getAccount } from "../src/getAccount.js";
 import { getAccountsFromFile } from "../src/getAccountsFromFile.js";
@@ -29,6 +29,14 @@ const main = async () => {
     const { address, nativeAmount, signingClient, usdAmount, InjPrivateKey } =
       await getAccount(mnemonic);
     try {
+      if (LEAVE_NATIVE_ON_ACCOUNT >= nativeAmount) {
+        logger.error(
+          `${address} - balance is too low ${nativeAmount} ${NATIVE_TICK} ($${usdAmount})`
+        );
+        await sleep(1);
+        continue;
+      }
+
       logger.info(
         `${address} - ${nativeAmount} ${NATIVE_TICK} ($${usdAmount})`
       );
@@ -39,7 +47,7 @@ const main = async () => {
         fromAddress: address,
         toAddress: WITHDRAW_EXCHANGE_ADDRESS,
         amount: Math.round(
-          (nativeAmount - FEE_NATIVE) * UNATIVE_PER_NATIVE
+          (nativeAmount - LEAVE_NATIVE_ON_ACCOUNT) * UNATIVE_PER_NATIVE
         ).toString(),
       });
 
