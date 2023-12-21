@@ -5,7 +5,6 @@ import {
   GAS,
   MEMO,
   NATIVE_DENOM,
-  REST_INJS,
   UNATIVE_PER_NATIVE,
 } from "../config.js";
 
@@ -43,7 +42,7 @@ export const sendTokens = async (params) => {
     const publicKey = privateKey.toPublicKey().toBase64();
 
     const accountDetails = await new ChainRestAuthApi(
-      REST_INJS || network.rest
+      network.rest
     ).fetchAccount(fromAddress);
 
     const msg = MsgSend.fromJSON({
