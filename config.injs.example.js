@@ -1,6 +1,7 @@
 // common
 export const EXPLORER = "https://www.mintscan.io/injective/tx";
 export const RPC = "https://sentry.tm.injective.network/";
+export const REST_INJS = "https://lcd.injective.network";
 export const NATIVE_PRICE_USD = 39.8;
 
 // mint

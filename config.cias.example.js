@@ -1,6 +1,7 @@
 // common
 export const EXPLORER = "https://www.mintscan.io/celestia/tx";
 export const RPC = "https://rpc.lunaroasis.net/";
+export const REST_INJS = "https://lcd.injective.network";
 export const NATIVE_PRICE_USD = 12.46;
 
 // mint
