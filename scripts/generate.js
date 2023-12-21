@@ -4,6 +4,7 @@ import { fileNameNowPrefix, writeFile } from "../src/helpers.js";
 import { logger } from "../src/logger.js";
 import { initializeFilesAndFolders } from "../src/initializeFilesAndFolders.js";
 import { ADDRESS_PREFIX } from "../config.js";
+import { getAccount } from "../src/getAccount.js";
 
 const { generate } = DirectSecp256k1HdWallet;
 
@@ -15,8 +16,7 @@ const main = async () => {
       const signer = await generate(12, { prefix: ADDRESS_PREFIX });
 
       const mnemonic = signer.mnemonic;
-      const account = await signer.getAccounts();
-      const address = account[0].address;
+      const { address } = await getAccount(mnemonic);
 
       return { mnemonic, address };
     })
