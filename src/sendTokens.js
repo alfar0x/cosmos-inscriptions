@@ -4,8 +4,6 @@ import {
   FEE_NATIVE,
   GAS,
   INJ_GRPC,
-  INJ_REST,
-  MEMO,
   NATIVE_DENOM,
   UNATIVE_PER_NATIVE,
 } from "../config.js";
@@ -18,6 +16,7 @@ import {
   ChainRestAuthApi,
   createTransaction,
   TxGrpcClient,
+  ChainGrpcAuthApi,
 } from "@injectivelabs/sdk-ts";
 import { logger } from "./logger.js";
 
@@ -34,7 +33,7 @@ export const sendTokens = async (params) => {
       toAddress,
       [{ denom: NATIVE_DENOM, amount }],
       { amount: [{ denom: NATIVE_DENOM, amount: fee }], gas: GAS.toString() },
-      MEMO
+      memo || ""
     );
 
     return { transactionHash }; // @ts-ignore
@@ -43,7 +42,7 @@ export const sendTokens = async (params) => {
 
     const publicKey = privateKey.toPublicKey().toBase64();
 
-    const accountDetails = await new ChainRestAuthApi(INJ_REST).fetchAccount(
+    const accountDetails = await new ChainGrpcAuthApi(INJ_GRPC).fetchAccount(
       fromAddress
     );
 
@@ -55,22 +54,19 @@ export const sendTokens = async (params) => {
 
     const { signBytes, txRaw } = createTransaction({
       message: msg,
-      memo,
+      memo: memo || "",
       fee: {
-        amount: [
-          {
-            amount: fee,
-            denom: NATIVE_DENOM,
-          },
-        ],
+        amount: [{ amount: fee, denom: NATIVE_DENOM }],
         gas: GAS.toString(),
       },
       pubKey: publicKey,
-      sequence: parseInt(accountDetails.account.base_account.sequence, 10),
-      accountNumber: parseInt(
-        accountDetails.account.base_account.account_number,
-        10
-      ),
+      sequence: accountDetails.baseAccount.sequence,
+      accountNumber: accountDetails.baseAccount.accountNumber,
+      // sequence: parseInt(accountDetails.account.base_account.sequence, 10),
+      // accountNumber: parseInt(
+      //   accountDetails.account.base_account.account_number,
+      //   10
+      // ),
       chainId: network.chainId,
     });
 
