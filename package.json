@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "addresses": "node scripts/addresses.js",
-    "generate": "node scripts/generate.js",
-    "mint": "node scripts/mint.js",
-    "dispatch": "node scripts/dispatch.js",
-    "withdraw": "node scripts/withdraw.js",
-    "balances": "node scripts/balances.js",
-    "minted": "node scripts/minted.js",
+    // "addresses": "node scripts/addresses.js",
+    // "generate": "node scripts/generate.js",
+    // "mint": "node scripts/mint.js",
+    // "dispatch": "node scripts/dispatch.js",
+    // "withdraw": "node scripts/withdraw.js",
+    // "balances": "node scripts/balances.js",
+    // "minted": "node scripts/minted.js",
     "update": "git reset --hard HEAD && git pull && npm install"
   },
   "dependencies": {
