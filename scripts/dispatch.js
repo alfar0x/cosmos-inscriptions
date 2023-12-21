@@ -69,7 +69,6 @@ const main = async () => {
         return;
       }
     } catch (error) {
-      console.log(error);
       logger.error(
         `${accountToDispatch.address} error - ${
           error?.message || "undefined error"

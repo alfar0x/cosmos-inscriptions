@@ -1,6 +1,5 @@
 import {
   ADDRESS_PREFIX,
-  EXPLORER,
   FEE_NATIVE,
   GAS,
   INJ_GRPC,
@@ -8,17 +7,13 @@ import {
   UNATIVE_PER_NATIVE,
 } from "../config.js";
 
-import { getNetworkInfo, Network } from "@injectivelabs/networks";
-
 import {
   MsgSend,
-  TxClient,
-  ChainRestAuthApi,
   createTransaction,
   TxGrpcClient,
   ChainGrpcAuthApi,
 } from "@injectivelabs/sdk-ts";
-import { logger } from "./logger.js";
+import { ChainId } from "@injectivelabs/ts-types";
 
 export const sendTokens = async (params) => {
   const { signingClient, privateKey, fromAddress, toAddress, memo, amount } =
@@ -38,10 +33,6 @@ export const sendTokens = async (params) => {
 
     return { transactionHash }; // @ts-ignore
   } else if (ADDRESS_PREFIX === "inj") {
-    const network = getNetworkInfo(Network.Mainnet);
-
-    const publicKey = privateKey.toPublicKey().toBase64();
-
     const accountDetails = await new ChainGrpcAuthApi(INJ_GRPC).fetchAccount(
       fromAddress
     );
@@ -59,36 +50,18 @@ export const sendTokens = async (params) => {
         amount: [{ amount: fee, denom: NATIVE_DENOM }],
         gas: GAS.toString(),
       },
-      pubKey: publicKey,
+      pubKey: privateKey.toPublicKey().toBase64(),
       sequence: accountDetails.baseAccount.sequence,
       accountNumber: accountDetails.baseAccount.accountNumber,
-      // sequence: parseInt(accountDetails.account.base_account.sequence, 10),
-      // accountNumber: parseInt(
-      //   accountDetails.account.base_account.account_number,
-      //   10
-      // ),
-      chainId: network.chainId,
+      chainId: ChainId.Mainnet,
     });
 
     const signature = await privateKey.sign(Buffer.from(signBytes));
-
     txRaw.signatures = [signature];
 
-    const url = `${EXPLORER}/${TxClient.hash(txRaw)}`;
-    logger.warn(`preliminary hash: ${url}`);
+    const txResponse = await new TxGrpcClient(INJ_GRPC).broadcast(txRaw);
 
-    const txService = new TxGrpcClient(INJ_GRPC);
-
-    // const simulationResponse = await txService.simulate(txRaw);
-    // console.log(
-    //   `Transaction simulation response: ${JSON.stringify(
-    //     simulationResponse.gasInfo
-    //   )}`
-    // );
-
-    const txResponse = await txService.broadcast(txRaw);
-
-    return { transactionHash: TxClient.hash(txRaw) };
+    return { transactionHash: txResponse.txHash };
   }
 
   throw new Error(`address prefix is not defined ${ADDRESS_PREFIX}`);
